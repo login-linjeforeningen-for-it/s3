@@ -1,0 +1,26 @@
+services:
+  rustfs:
+    image: rustfs/rustfs:latest
+    container_name: login_s3_rustfs
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - "9100:9000"
+      - "9101:9001"
+    environment:
+      RUSTFS_ADDRESS: 0.0.0.0:9000
+      RUSTFS_CONSOLE_ADDRESS: 0.0.0.0:9001
+      RUSTFS_CONSOLE_ENABLE: "true"
+      RUSTFS_CORS_ALLOWED_ORIGINS: "https://login.no,https://*.login.no"
+      RUSTFS_CONSOLE_CORS_ALLOWED_ORIGINS: "https://s3-console.login.no"
+    volumes:
+      - rustfs_data:/data
+      - ./logs:/logs
+    command: /data
+    mem_limit: 2g
+    cpus: "2.0"
+
+volumes:
+  rustfs_data:
+

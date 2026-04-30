@@ -13,7 +13,7 @@ services:
       RUSTFS_CONSOLE_ADDRESS: 0.0.0.0:9001
       RUSTFS_CONSOLE_ENABLE: "true"
       RUSTFS_CORS_ALLOWED_ORIGINS: "https://login.no,https://*.login.no"
-      RUSTFS_CONSOLE_CORS_ALLOWED_ORIGINS: "https://s3-console.login.no"
+      RUSTFS_CONSOLE_CORS_ALLOWED_ORIGINS: "https://spaces.login.no"
     volumes:
       - rustfs_data:/data
     command:

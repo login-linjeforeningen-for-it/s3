@@ -5,9 +5,8 @@ Self-hosted S3-compatible object storage for Login, powered by RustFS.
 ## Endpoints
 
 - S3 API: `https://s3.login.no`
-- Console: `https://s3-console.login.no`
 - Local API port: `9100`
-- Local console port: `9101`
+- Local console port: `9101` if the active RustFS image serves the embedded console. The polished RustFS console currently lives in the separate `rustfs/console` project and should be deployed separately before exposing an admin subdomain.
 
 ## First Run
 
@@ -51,4 +50,3 @@ docker compose logs -f rustfs
 ```
 
 Keep `.env` and object data out of git.
-

@@ -50,15 +50,4 @@ docker compose up -d
 docker compose logs -f rustfs
 ```
 
-## Authentik Sync
-
-The RustFS OIDC configuration is generated from the Authentik `s3` application and provider:
-
-```sh
-scripts/sync-authentik-oidc.py
-docker compose up -d
-```
-
-The sync script is idempotent. It keeps the Authentik `s3` app restricted to the `s3` group and maps accepted OIDC users to RustFS `consoleAdmin`.
-
 Keep `.env` and object data out of git.

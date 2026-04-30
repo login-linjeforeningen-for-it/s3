@@ -152,6 +152,7 @@ def copy_object(source, destination, bucket: str, key: str, size: int) -> None:
             destination.abort_multipart_upload(Bucket=bucket, Key=key, UploadId=upload_id)
             raise
     else:
+        put_kwargs["Body"] = body.read()
         destination.put_object(**put_kwargs)
 
 

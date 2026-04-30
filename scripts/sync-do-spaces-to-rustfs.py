@@ -100,8 +100,10 @@ def destination_matches(client, bucket: str, key: str, size: int, etag: str | No
         head = client.head_object(Bucket=bucket, Key=key)
     except ClientError:
         return False
-    if int(head.get("ContentLength", -1)) != size:
-        return False
+    # Multipart ETags differ between providers. Size is the stable check after
+    # the full source/destination summary verifies object count and total bytes.
+    if int(head.get("ContentLength", -1)) == size:
+        return True
     destination_etag = str(head.get("ETag", "")).strip('"')
     source_etag = (etag or "").strip('"')
     return bool(source_etag and destination_etag == source_etag)

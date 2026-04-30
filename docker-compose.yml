@@ -16,7 +16,16 @@ services:
       RUSTFS_CONSOLE_CORS_ALLOWED_ORIGINS: "https://s3-console.login.no"
     volumes:
       - rustfs_data:/data
-    command: /data
+    command:
+      - server
+      - --address
+      - :9000
+      - --console-enable
+      - --console-address
+      - :9001
+      - --server-domains
+      - s3.login.no
+      - /data
     mem_limit: 2g
     cpus: "2.0"
 

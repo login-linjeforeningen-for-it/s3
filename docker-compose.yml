@@ -16,11 +16,9 @@ services:
       RUSTFS_CONSOLE_CORS_ALLOWED_ORIGINS: "https://s3-console.login.no"
     volumes:
       - rustfs_data:/data
-      - ./logs:/logs
     command: /data
     mem_limit: 2g
     cpus: "2.0"
 
 volumes:
   rustfs_data:
-

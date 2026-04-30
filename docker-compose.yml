@@ -9,7 +9,7 @@ services:
       - "9100:9000"
       - "9101:9001"
     extra_hosts:
-      - "authentik.login.no:host-gateway"
+      - "authentik.login.no:128.39.142.138"
     environment:
       RUSTFS_ADDRESS: 0.0.0.0:9000
       RUSTFS_CONSOLE_ADDRESS: 0.0.0.0:9001
